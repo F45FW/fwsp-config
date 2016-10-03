@@ -1,0 +1,35 @@
+{
+  "redisUrl": "bup-irsed-10655.us-esta-1-2.4.ec2.rataatadiagn.ocm",
+  "redisPort": 10655,
+  "redisDB": 0,
+  "databaseName": "infopath",
+  "aws": {
+    "accessKeyId": "Jifakac3Rfow547Iq27Q",
+    "secretAccessKey": "rhaeololy/5Fidb00boq2Dhebohnyaz+Iklshigc",
+    "region": "us-west-2",
+    "apiVersions": {
+      "dynamodb": "2012-08-10",
+      "sqs": "2012-11-05",
+      "sns": "2010-03-31"
+    }
+  },
+  "hydra": {
+    "serviceName": "infopath",
+    "serviceIP": "",
+    "servicePort": 9034,
+    "serviceType": "data",
+    "aws": {
+      "accessKeyId": "Jifakac3Rfow547Iq27Q",
+      "secretAccessKey": "rhaeololy/5Fidb00boq2Dhebohnyaz+Iklshigc",
+      "region": "us-west-2",
+      "apiVersions": {
+        "sqs": "2012-11-05",
+        "sns": "2010-03-31"
+      }
+    },
+    "redis": {
+      "url": "bup-irsed-10655.us-esta-1-2.4.ec2.rataatadiagn.ocm",
+      "port": 10655
+    }
+  }
+}
