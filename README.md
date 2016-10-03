@@ -8,7 +8,7 @@ Once the config module is initialized you can access config properties as you wo
 **Load a local file**
 
 ```javascript
-const config = require('@flywheelsports/config');
+const config = require('fwsp-config');
 config.init('properties.json')
   .then(() => {
     console.log(config.aws);  
@@ -19,7 +19,7 @@ config.init('properties.json')
 **Load a remote file**
 
 ```javascript
-const config = require('@flywheelsports/config');
+const config = require('fwsp-config');
 config.init('http://cjus.me/properties.json');
   .then(() => {
     console.log(config.aws);  
@@ -46,7 +46,7 @@ Sometimes multiple instances of a service might share the same configuration fil
 The `config` module behaves like a JavaScript object once it has configuration files loaded. However, for times when you really do what a pure JS object you can use the `getObject()` method:
 
 ```javascript
-const config = require('@flywheelsports/config');
+const config = require('fwsp-config');
 config.init('properties.json')
   .then(() => {
     let obj = config.getObject();
@@ -59,7 +59,7 @@ config.init('properties.json')
 Config allows you to use plain JavaScript setter patterns to update a loaded configuration file. This is useful in a shared configuration file scenario where each service loads a config file and needs to override one or more fields.
 
 ```javascript
-const config = require('@flywheelsports/config');
+const config = require('fwsp-config');
 config.init('properties.json')
   .then(() => {
     config.hydra.serviceName = 'NewServiceName';
