@@ -1,4 +1,4 @@
-# Config
+# Config [![Build Status](https://travis-ci.org/flywheelsports/fwsp-config.svg?branch=master)](https://travis-ci.org/flywheelsports/fwsp-config)
 A configuration file handler. Config can load configuration files from a local file system or a remote server.
 
 Once the config module is initialized you can access config properties as you would a simple [POJOs](https://www.quora.com/What-is-a-plainObject-in-JavaScript) JavaScript object.
