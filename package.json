@@ -1,6 +1,6 @@
 {
   "name": "fwsp-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Carlos Justiniano",
   "description": "Configuration file handler",
   "keywords": [
