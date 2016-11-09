@@ -16,13 +16,14 @@
   "scripts": {
     "test": "mocha specs --reporter spec"
   },
-  "license": "MIT",   
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flywheelsports/fwsp-config.git"
   },
   "dependencies": {
     "bluebird": "^3.4.1",
+    "fwsp-umf-message": "0.4.3",
     "node-fetch": "^1.5.3"
   },
   "devDependencies": {
