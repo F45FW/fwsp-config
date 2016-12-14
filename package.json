@@ -24,6 +24,8 @@
   "dependencies": {
     "bluebird": "^3.4.1",
     "fwsp-umf-message": "0.4.3",
+    "fwsp-hydra": "0.12.0",
+    "fwsp-hydra-express": "0.12.0",
     "node-fetch": "^1.5.3"
   },
   "devDependencies": {
