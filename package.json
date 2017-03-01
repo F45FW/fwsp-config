@@ -1,6 +1,6 @@
 {
   "name": "fwsp-config",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Carlos Justiniano",
   "description": "Configuration file handler",
   "keywords": [
@@ -22,19 +22,17 @@
     "url": "git+https://github.com/flywheelsports/fwsp-config.git"
   },
   "dependencies": {
-    "bluebird": "^3.4.1",
+    "bluebird": "3.4.7",
     "fwsp-umf-message": "0.4.3",
-    "fwsp-hydra": "0.12.0",
-    "fwsp-hydra-express": "0.12.0",
-    "node-fetch": "^1.5.3"
+    "fwsp-hydra": "0.14.4",
+    "fwsp-hydra-express": "0.14.6",
+    "node-fetch": "1.6.3"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.3.0",
-    "eslint": "^2.13.1",
-    "jscs": "^3.0.4",
-    "jscs-jsdoc": "^2.0.0",
-    "mocha": "^2.5.3"
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "eslint": "3.16.1",
+    "mocha": "3.2.0"
   },
   "bin": {
     "fwsp-config": "index.js"
