@@ -26,12 +26,20 @@ class Config {
   * @param {function} reject - reject function
   */
   _doInit(configFilePath, resolve, reject) {
-    if (configFilePath.substring(0,4) === 'http') {
-      // network based
-      this._doInitViaNetwork(configFilePath, resolve, reject);
+    if (!configFilePath) {
+      reject(new Error('no configFilePath specified'));
     } else {
-      // file based
-      this._doInitViaFile(configFilePath, resolve, reject);
+      try {
+        if (configFilePath.substring(0, 4) === 'http') {
+          // network based
+          this._doInitViaNetwork(configFilePath, resolve, reject);
+        } else {
+          // file based
+          this._doInitViaFile(configFilePath, resolve, reject);
+        }
+      } catch (err) {
+        reject(err);
+      }
     }
   }
 
@@ -108,7 +116,7 @@ class Config {
 * Return an ES6 Proxy object which provides access to configuration fields.
 */
 module.exports = new Proxy(new Config(), {
-  get: function(target, name, receiver) {
+  get: function (target, name, receiver) {
     return name in target ?
       target[name] : target.config[name];
   }
