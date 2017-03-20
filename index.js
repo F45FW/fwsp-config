@@ -21,21 +21,26 @@ class Config {
   /**
   * @name _doInit
   * @summary Perform initialization process.
-  * @param {string} configFilePath - path or URL to configuration JSON data
+  * @param {string/object} cfg - path or URL to configuration JSON data or object
   * @param {function} resolve - resolve function
   * @param {function} reject - reject function
   */
-  _doInit(configFilePath, resolve, reject) {
-    if (!configFilePath) {
-      reject(new Error('no configFilePath specified'));
+  _doInit(cfg, resolve, reject) {
+    if (!cfg) {
+      reject(new Error('no config specified'));
     } else {
       try {
-        if (configFilePath.substring(0, 4) === 'http') {
-          // network based
-          this._doInitViaNetwork(configFilePath, resolve, reject);
+        if (typeof cfg === 'string') {
+          if (cfg.substring(0, 4) === 'http') {
+            // network based
+            this._doInitViaNetwork(cfg, resolve, reject);
+          } else {
+            // file based
+            this._doInitViaFile(cfg, resolve, reject);
+          }
         } else {
-          // file based
-          this._doInitViaFile(configFilePath, resolve, reject);
+          this.config = Object.assign({}, cfg);
+          resolve();
         }
       } catch (err) {
         reject(err);
@@ -57,7 +62,7 @@ class Config {
         if (config.location) {
           this._doInit(config.location, resolve, reject);
         } else {
-          this.config = config;
+          this.config = Object.assign({}, config);
           resolve();
         }
       } else {
@@ -102,12 +107,12 @@ class Config {
   /**
   * @name init
   * @summary Initializes config object with JSON file data.
-  * @param {string} configFilePath - path to config file.
+  * @param {object/string} cfg - path to config file or config object
   * @return {object} promise - resolves if successful, else rejects
   */
-  init(configFilePath) {
+  init(cfg) {
     return new Promise((resolve, reject) => {
-      this._doInit(configFilePath, resolve, reject);
+      this._doInit(cfg, resolve, reject);
     });
   }
 }

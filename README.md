@@ -1,7 +1,7 @@
-# Config 
+# Config
 
 [![Build Status](https://travis-ci.org/flywheelsports/fwsp-config.svg?branch=master)](https://travis-ci.org/flywheelsports/fwsp-config)
-[![npm version](https://badge.fury.io/js/fwsp-config.svg)](https://badge.fury.io/js/fwsp-config) <span class="badge-npmdownloads"><a href="https://npmjs.org/package/fwsp-config" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/fwsp-config.svg" alt="NPM downloads" /></a></span> [![npm](https://img.shields.io/npm/l/fwsp-config.svg)]() 
+[![npm version](https://badge.fury.io/js/fwsp-config.svg)](https://badge.fury.io/js/fwsp-config) <span class="badge-npmdownloads"><a href="https://npmjs.org/package/fwsp-config" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/fwsp-config.svg" alt="NPM downloads" /></a></span> [![npm](https://img.shields.io/npm/l/fwsp-config.svg)]()
 
 A configuration file handler. Config can load configuration files from a local file system or a remote server.
 
@@ -30,6 +30,27 @@ config.init('http://cjus.me/properties.json');
     console.log(config.hydra.aws.apiVersions);
   });
 ```
+
+**Load from an object**
+
+const config = require('fwsp-config');
+config.init({
+  hydra: {
+   serviceName: 'offers-service',
+   serviceIP: '',
+   servicePort: 7000,
+   serviceType: 'offers',
+   serviceDescription: 'Phone validation for use with first ride class offers',
+   redis: {
+     url: 'redis', port: 6379, db: 15
+     }
+   }
+})
+  .then(() => {
+    console.log(config.hydra);  
+  });
+```
+
 
 **Usage**
 
