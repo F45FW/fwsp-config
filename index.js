@@ -3,6 +3,7 @@
 const fs = require('fs');
 const Promise = require('bluebird');
 const fetch = require('node-fetch');
+const Utils = require('fwsp-jsutils');
 
 class Config {
   constructor() {
@@ -58,7 +59,7 @@ class Config {
   _doInitViaFile(configFilePath, resolve, reject) {
     fs.readFile(configFilePath, (err, result) => {
       if (!err) {
-        let config = JSON.parse(result.toString());
+        let config = Utils.safeJSONParse(result.toString());
         if (config.location) {
           this._doInit(config.location, resolve, reject);
         } else {
@@ -88,7 +89,6 @@ class Config {
     };
     fetch(configFilePath, options)
       .then((response) => {
-        console.log('response.status', response.status);
         return response.json();
       })
       .then((config) => {
