@@ -60,6 +60,10 @@ class Config {
     fs.readFile(configFilePath, (err, result) => {
       if (!err) {
         let config = Utils.safeJSONParse(result.toString());
+        if (!config) {
+          reject(new Error('unable to parse config file'));
+          return;
+        }
         if (config.location) {
           this._doInit(config.location, resolve, reject);
         } else {
